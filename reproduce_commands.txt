@@ -1,0 +1,21 @@
+# reproduce mnist error vs m plot
+python run_experiments.py --dataset mnist --seed 94 --n_iter 12000 --n_images 1 --elu --fun linear --alg gd eadmm --m_rel 0.05 0.1 0.2 0.3 0.4 0.5 0.7 --normalize
+
+# reproduce convergence rate mnist
+python run_experiments.py --dataset mnist --seed 94 --n_iter 12001 --n_images 1 --elu --fun linear --alg gd eadmm --m_rel 0.1 0.3 0.5 --normalize
+
+
+# reproduce mnist images 12000 iter
+run_experiments.py --dataset mnist --seed 97 --n_iter 12000 --n_images 7 --elu --fun linear --alg gd eadmm --m_rel 0.1 --normalize
+
+# reproduce mnist images 2000 iter
+(pytorch) [GAN-sensing] python run_experiments.py --dataset mnist --seed 97 --n_iter 2000 --n_images 7 --elu --fun linear --alg gd eadmm --m_rel 0.1 --normalize
+
+# reproduce mnist images 3000 iter
+python run_experiments.py --dataset mnist --seed 99 --n_iter 3000 --n_images 7 --elu --fun linear --alg gd eadmm --m_rel 0.1 --normalize
+
+# reproduce mnist error_vs_m plot
+python run_experiments.py --dataset mnist --seed 96 --n_iter 3000 --n_images 1 --elu --fun linear --alg eadmm admm gd --m_rel 0.05 0.1 0.2 0.3 0.5 0.7 --normalize --cuda --restarts 3
+
+# reproduce celeba images compressive sensing
+python run_experiments.py --dataset celeba --seed 94 --n_iter 10000 --n_images 7 --fun linear --alg gd admm eadmm --m_rel 0.1 0.2 0.3 0.5 0.7 --normalize --restarts 3 --elu --cuda
